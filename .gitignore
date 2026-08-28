@@ -1,0 +1,15 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/secrets.toml
+.DS_Store
+
+# Per-run eval output is noise; the baseline run backing the README metric is
+# committed explicitly below, so the number can be re-scored and audited.
+eval/results/*.json
+eval/results/*.log
+!eval/results/baseline-2026-08-26.json
+!eval/results/latest.md

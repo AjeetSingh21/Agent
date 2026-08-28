@@ -1,0 +1,78 @@
+# Evaluation set for the research agent.
+#
+# Each goal is scored on four objective, non-LLM criteria so the headline metric
+# is reproducible and cannot be inflated by the model grading itself:
+#
+#   1. completed          - the run produced a non-empty answer with no fatal error
+#   2. min_sources        - at least this many distinct sources were gathered
+#   3. cited              - the answer contains inline [n] citations that all
+#                           correspond to sources actually gathered (no invented refs)
+#   4. must_mention       - case-insensitive substrings the answer should contain,
+#                           used as a light relevance check
+#
+# A goal counts as a success only if all four pass.
+
+defaults:
+  min_sources: 5
+  min_citations: 3
+
+goals:
+  - id: solid-state-batteries
+    goal: >-
+      Research the current state of solid-state batteries for electric vehicles
+      and summarise the key barriers to mass production.
+    must_mention: ["batter", "electrolyte"]
+
+  - id: agent-frameworks
+    goal: >-
+      Compare LangGraph, CrewAI and AutoGen for building production AI agents,
+      and recommend one for a small team.
+    must_mention: ["langgraph", "crewai"]
+
+  - id: eu-ai-act
+    goal: >-
+      Summarise what the EU AI Act requires of small software companies and when
+      the main obligations take effect.
+    must_mention: ["ai act", "risk"]
+
+  - id: heat-pumps
+    goal: >-
+      Research whether air-source heat pumps are cost-effective in cold climates
+      and summarise the evidence on both sides.
+    must_mention: ["heat pump", "cold"]
+
+  - id: rag-vs-finetune
+    goal: >-
+      Compare retrieval-augmented generation against fine-tuning for adapting an
+      LLM to a company's internal documents.
+    must_mention: ["retrieval", "fine-tun"]
+
+  - id: quantum-error-correction
+    goal: >-
+      Research recent progress in quantum error correction and summarise what
+      still blocks fault-tolerant quantum computing.
+    must_mention: ["error correction", "qubit"]
+
+  - id: remote-work-productivity
+    goal: >-
+      Summarise what the research evidence actually says about remote work and
+      productivity, including where studies disagree.
+    must_mention: ["remote", "productivit"]
+
+  - id: carbon-capture
+    goal: >-
+      Research direct air capture of CO2 and summarise the current cost per tonne
+      and the main criticisms of the technology.
+    must_mention: ["capture", "cost"]
+
+  - id: python-packaging
+    goal: >-
+      Compare uv, Poetry and pip-tools for Python dependency management in 2025
+      and recommend one for a small data team.
+    must_mention: ["uv", "poetry"]
+
+  - id: sleep-and-cognition
+    goal: >-
+      Research how chronic sleep restriction affects cognitive performance and
+      summarise the strength of the evidence.
+    must_mention: ["sleep", "cogniti"]
