@@ -28,7 +28,7 @@ def _float_env(name: str, default: float) -> float:
 class Config:
     """Everything the agent needs to know about its environment."""
 
-    model: str = os.getenv("AGENT_MODEL", "llama-3.3-70b-versatile")
+    model: str = os.getenv("AGENT_MODEL", "openai/gpt-oss-120b")
     temperature: float = _float_env("AGENT_TEMPERATURE", 0.2)
 
     # How many extra search rounds the reflect node may trigger after the

@@ -4,7 +4,7 @@ A goal-driven AI agent that decomposes a research question into sub-questions, s
 
 Built with **LangGraph** on **GPT-OSS 120B** (Groq), with an objective evaluation harness that scores task success rate without an LLM judge.
 
-**🚀 [Live demo](https://huggingface.co/spaces/YOUR_USERNAME/multi-step-research-agent)** · _(replace with your Space URL after deploying)_
+**🚀 [Live demo](https://YOUR_APP.streamlit.app)** · _(replace with your Streamlit Cloud URL after deploying)_
 
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![LangGraph](https://img.shields.io/badge/LangGraph-1.x-orange) ![Tests](https://img.shields.io/badge/tests-55%20passing-brightgreen)
 
@@ -65,7 +65,7 @@ The free tier allows 200,000 tokens/day, and an early full evaluation exhausted 
 | LLM | GPT-OSS 120B via Groq | Free tier, fast, follows JSON schemas reliably |
 | Search | DuckDuckGo -> Yahoo failover (`ddgs`), optional Tavily | No API key required by default |
 | Calculator | AST-walk evaluator | No `eval()`, no builtins reachable |
-| UI | Streamlit | Streams the step trail live; deploys to HF Spaces as-is |
+| UI | Streamlit | Streams the step trail live; deploys to Streamlit Community Cloud as-is |
 | Eval | Custom harness | Objective scoring, no LLM judge |
 
 ## Results
@@ -90,11 +90,11 @@ Ten goals is also a small sample. Treat this as evidence the agent completes its
 ## Running locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/multi-step-research-agent.git
+git clone https://github.com/AjeetSingh21/Agent.git
 ```
 
 ```bash
-cd multi-step-research-agent && python -m venv .venv && .venv/Scripts/activate
+cd Agent && python -m venv .venv && .venv/Scripts/activate
 ```
 
 ```bash
@@ -159,12 +159,13 @@ All optional, set in `.env`:
 
 ## Deployment
 
-See [`deploy/DEPLOY.md`](deploy/DEPLOY.md) for step-by-step Hugging Face Spaces instructions.
+Deployed on Streamlit Community Cloud, which builds straight from `main` — no Dockerfile,
+no deploy script. See [`deploy/DEPLOY.md`](deploy/DEPLOY.md) for step-by-step instructions.
 
 ## Project layout
 
 ```
-app.py                 Streamlit UI / HF Spaces entrypoint
+app.py                 Streamlit UI / deployment entrypoint
 scripts/list_models.py Shows which Groq models your key can reach
 src/agent/
   config.py            Environment-driven settings
